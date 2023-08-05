@@ -264,9 +264,9 @@ Grocery List
   visibility: visible;
 }
 .grocery-item {
-  display: flex;
+  display: flex!;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between!;
   margin-bottom: 0.5rem;
   transition: var(--transition);
   padding: 0.25rem 1rem;

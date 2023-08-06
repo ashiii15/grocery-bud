@@ -8,6 +8,8 @@ const clearBtn = document.querySelector(".clear-btn")
 const submitBtn = document.querySelector(".submit-btn")
 
 
+
+
 // edit option
 let editElement
 editFlag = false
@@ -36,6 +38,24 @@ form.addEventListener("submit",(e)=>{
           </button>
         </div> `
         lists.appendChild(element)
+                // access edit and delete btn
+
+        const editBtn = element.querySelector(".edit-btn")
+editBtn.addEventListener("click",()=>{
+    console.log(`edit here`);
+})
+       const deltBtn = element.querySelector(".delete-btn")
+       deltBtn.addEventListener("click",(e)=>{
+      let element =  e.currentTarget.parentElement.parentElement;
+      lists.removeChild(element)
+      if(lists.children.length === 0){
+        container.classList.remove("show-container")
+      }
+      displayAlert(`clearing`,`succes`)
+
+    })
+
+        element.querySelector(".delete-btn")
         // display
         container.classList.add("show-container")
         displayAlert(`item added successfully`,`success`)
@@ -51,6 +71,10 @@ form.addEventListener("submit",(e)=>{
 })
 
 // ****** FUNCTIONS **********
+
+
+
+
 function displayAlert(item,action){
     alert.textContent = item
     alert.classList.add(`alert-${action}`)
@@ -66,10 +90,11 @@ clearBtn.addEventListener("click",()=>{
     if(items.length > 0){
         items.forEach((item)=>{
             lists.removeChild(item)
-            lists.classList.remove("grocery-items")
-            container.classList.remove("show-container")
-            
+            lists.classList.remove("grocery-items")            
         })
+        container.classList.remove("show-container")
+        displayAlert("clearing",`success`)
+
     }
 
 })
